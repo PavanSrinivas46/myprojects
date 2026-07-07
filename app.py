@@ -3,6 +3,7 @@ from streamlit_autorefresh import st_autorefresh
 import pandas as pd
 import numpy as np
 import datetime
+from zoneinfo import ZoneInfo
 import requests
 
 # ==========================================
@@ -74,7 +75,7 @@ def fetch_analytics_data():
 st.set_page_config(page_title="Growth OS Mission Control", page_icon="🚀", layout="wide")
 
 st.title("🚀 Growth OS Mission Control")
-st.caption(f"🔄 Auto-syncing every 60 seconds. Last updated: {datetime.datetime.now().strftime('%H:%M:%S')}")
+st.caption(f"🔄 Auto-syncing every 60 seconds. Last updated: {datetime.datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%I:%M:%S %p')} IST")
 
 metrics = fetch_overview_metrics()
 realtime = fetch_realtime_panel()
